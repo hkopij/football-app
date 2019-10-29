@@ -4,14 +4,25 @@
     Wygląda na to, że nie dodałeś jeszcze żadnej ligi do ulubionych :(
   </div>
 <% else %>
-
+  <% current_user.leagues.each do |league| %>
+    <%= league.name %>
+  <% end %>
 <% end %>
 
 <h1 align = "center">Dostępne ligi:</h1>
 
-<% @response['competitions'].select { |hash| hash['plan'] == "TIER_ONE"}.each do |league| %>
+<% @leagues.each do |league| %>
   <div align="center">
-    <%= league['name'] %> (<%= league['area']['name'] %>)
+    <%= "#{league.name} (#{league.country})" %>-
+    <% if current_user.leagues.exists?(:id => league) %>
+      <%= form_tag(controller: "leagues", action: "remove_league_from_favorites", id: league.id) do %>
+        <%= submit_tag "Usuń"%>
+      <% end %>
+    <% else %>
+      <%= form_tag(controller: "leagues", action: "add_league_to_favorites", id: league.id) do %>
+        <%= submit_tag "Dodaj"%>
+      <% end %>
+    <% end %>
     <br>
     <br>
   </div>
