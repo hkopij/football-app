@@ -1,1 +1,18 @@
-Leagues
+<h1 align = "center">Twoje ligi:</h1>
+<% if current_user.leagues.count == 0 %>
+  <div align="center">
+    Wygląda na to, że nie dodałeś jeszcze żadnej ligi do ulubionych :(
+  </div>
+<% else %>
+
+<% end %>
+
+<h1 align = "center">Dostępne ligi:</h1>
+
+<% @response['competitions'].select { |hash| hash['plan'] == "TIER_ONE"}.each do |league| %>
+  <div align="center">
+    <%= league['name'] %> (<%= league['area']['name'] %>)
+    <br>
+    <br>
+  </div>
+<% end %>
