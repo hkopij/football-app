@@ -13,7 +13,7 @@
 
 <% @leagues.each do |league| %>
   <div align="center">
-    <%= "#{league.name} (#{league.country})" %>-
+    <%= "#{league.name} (#{league.country})" %>
     <% if current_user.leagues.exists?(:id => league) %>
       <%= form_tag(controller: "leagues", action: "remove_league_from_favorites", id: league.id) do %>
         <%= submit_tag "Usuń"%>
@@ -27,3 +27,7 @@
     <br>
   </div>
 <% end %>
+<div align = "center">
+  <%= link_to "Account", edit_user_registration_path %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</div>
