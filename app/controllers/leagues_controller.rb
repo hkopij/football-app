@@ -13,7 +13,7 @@ class LeaguesController < ApplicationController
 
   def remove_league_from_favorites
     @league = League.find(params[:id])
-    current_user.leagues.find(@league.id).delete
+    current_user.leagues.delete(@league)
     redirect_to root_path
   end
 end

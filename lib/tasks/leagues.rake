@@ -9,7 +9,7 @@ namespace :leagues do
     response = Net::HTTP.get(uri)
     output = JSON.parse(response)
 
-    output.select {|hash| hash['league_id'].to_i < 200}.each do |league|
+    output.select {|hash| hash['league_id'].to_i < 20}.each do |league|
       League.find_or_create_by(api_league_id: league['league_id']).update_attributes!(
         :name => league['league_name'],
         :country => league['country_name']
@@ -17,6 +17,7 @@ namespace :leagues do
     end
   end
 
+  desc 'Import league teams detailed information'
   task :import_league_details => :environment do
     League.all.each do |league|
       url = "https://apiv2.apifootball.com/?action=get_standings&league_id=#{league.api_league_id}&APIkey=59a8e0b3919e94cf76ad29c495984ccc8c5533d8e98cb0f00cebf0ba55580faf"
@@ -32,9 +33,9 @@ namespace :leagues do
           :points => team['overall_league_PTS'],
           :league => league
         )
-      rescue TypeError
-          next
       end
+    rescue TypeError
+        next
     end
   end
 end
