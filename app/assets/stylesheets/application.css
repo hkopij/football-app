@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.liga {
+  display: inline-block;
+  width: 33%
+}
+
+.league-list {
+  display: inline-block;
+  width: 19%
+}

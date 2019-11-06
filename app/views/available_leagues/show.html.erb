@@ -5,7 +5,7 @@
   </div>
 <% else %>
   <% @available_leagues.each do |league| %>
-    <div align = "center">
+    <div align = "center" class="league-list">
       <%= league.name %>(<%= league.country_name%>)
       <%= form_tag(controller: "available_leagues", action: "add_available_league_to_leagues", id: league.id) do %>
         <%= submit_tag "Dodaj"%>

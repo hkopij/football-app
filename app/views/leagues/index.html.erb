@@ -5,8 +5,8 @@
   </div>
 <% else %>
   <% current_user.leagues.each do |league| %>
-    <h1 align = "center"><%= league.name %>(<%= league.country %>)</h1>
-    <div>
+    <div class = "liga">
+      <h1 align = "center"><%= league.name %>(<%= league.country %>)</h1>
       <table align = "center">
         <tr>
           <th>#</th>
@@ -32,7 +32,7 @@
 <h1 align = "center">Dostępne ligi:</h1>
 
 <% @leagues.each do |league| %>
-  <div align="center">
+  <div align="center" class="league-list">
     <%= league.name %>(<%= league.country %>)
     <% if current_user.leagues.exists?(:id => league) %>
       <%= form_tag(controller: "leagues", action: "remove_league_from_favorites", id: league.id) do %>
