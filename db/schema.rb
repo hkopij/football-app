@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_30_121419) do
+ActiveRecord::Schema.define(version: 2019_11_06_162240) do
+
+  create_table "available_countries", force: :cascade do |t|
+    t.string "name"
+    t.integer "country_id_api"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "available_leagues", force: :cascade do |t|
+    t.integer "available_country_id"
+    t.integer "league_id_api"
+    t.string "country_name"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["available_country_id"], name: "index_available_leagues_on_available_country_id"
+  end
 
   create_table "league_participants", force: :cascade do |t|
     t.integer "league_id"

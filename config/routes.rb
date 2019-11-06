@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root 'leagues#index'
   post 'leagues/add_league_to_favorites'
   post 'leagues/remove_league_from_favorites'
+  post 'leagues/add_league_to_available_leagues'
 end
