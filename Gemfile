@@ -16,6 +16,8 @@ gem 'devise'
 gem 'json'
 gem 'whenever', require: false
 gem 'ransack'
+gem 'jquery-turbolinks'
+gem 'jquery-rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

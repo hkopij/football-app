@@ -7,22 +7,22 @@
   <% current_user.leagues.each do |league| %>
     <div class = "liga">
       <h1 align = "center"><%= league.name %>(<%= league.country %>)</h1>
-      <table align = "center">
-        <tr>
-          <th>#</th>
-          <th>Team</th>
-          <th>GS</th>
-          <th>GA</th>
-          <th>PTS</th>
-        </tr>
+      <table align = "center" class = "sortable">
+          <tr>
+            <th>#</th>
+            <th>Team</th>
+            <th>GS</th>
+            <th>GA</th>
+            <th>PTS</th>
+          </tr>
         <% league.league_participants.each do |participant| %>
-    	    <tr>
-    				<td><%= participant.position %></td>
-    				<td><%= participant.teamname %></td>
-    				<td><%= participant.goals_scored %></td>
-    				<td><%= participant.goals_lost %></td>
+          <tr>
+            <td><%= participant.position %></td>
+            <td><%= participant.teamname %></td>
+            <td><%= participant.goals_scored %></td>
+            <td><%= participant.goals_lost %></td>
             <td><%= participant.points %></td>
-    			</tr>
+          </tr>
         <% end %>
     		</table>
     </div>
