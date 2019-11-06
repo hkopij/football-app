@@ -15,6 +15,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'json'
 gem 'whenever', require: false
+gem 'ransack'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

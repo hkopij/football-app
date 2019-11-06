@@ -49,6 +49,20 @@
 <% end %>
 
 <h1 align = "center">Nie widzisz swojej ulubionej ligi? Dodaj ją!</h1>
+<div align = "center">
+  <%= search_form_for @q do |f| %>
+    <%= f.label :nazwa_ligi %>
+    <%= f.search_field :name_cont %>
+
+    <%= f.label :kraj_ligi %>
+    <%= f.search_field :country_name_cont %>
+
+    <%= f.submit "Wyszukaj" %>
+  <% end %>
+</div>
+
+
+
 
 <div align = "center">
   <%= link_to "Account", edit_user_registration_path %>
