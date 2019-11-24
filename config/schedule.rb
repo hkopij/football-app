@@ -1,4 +1,4 @@
-every 1.minute do
+every 1.hour do
   rake "leagues:import_league_details", :environment => 'development'
 end
 
