@@ -32,5 +32,6 @@ And finally, you should run rake tasks to have all the available leagues updated
 
 - Devise - simple authentication for users
 - Json - handling API responses
+- Whenever - scheduling cron jobs
 - Ransack - basic search of available leagues
 - jquery - sorting of league tables
